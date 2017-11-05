@@ -2,12 +2,18 @@
 #include "MergeSort.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdint.h>
 
 void setUp(void){}
 
 void tearDown(void){}
 
-
+void test_MergeSort_given_NULL_expected_NULL(void)
+{
+ uint8_t *arrIn =  NULL;
+ MergeSort(arrIn,0,0);
+ TEST_ASSERT_NULL(arrIn);
+}
 
 void test_MergeSort_given_3_2_1_expected_1_2_3(void)
 {
@@ -22,7 +28,7 @@ void test_MergeSort_given_3_2_1_expected_1_2_3(void)
  *            /     \        <- merge sort
  *         5 8 3    1 9
  *         /  \     / \     <- merge sort
- *      5 8    3   1   9 
+ *      5 8    3   1   9
  *      / \    /            <- merge sort
  *    5   8   /
  *    \  /  /               <- merge(within left sub)
